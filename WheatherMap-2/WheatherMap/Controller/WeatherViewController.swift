@@ -86,7 +86,7 @@ class WeatherViewController: UIViewController {
         self.currentWeatherForecastInfo = self.weatherModel?.weatherInfoList.filter({$0.date == self.currentDate})
         self.weeklyWeatherForecastInfo = self.weatherModel?.weatherInfoList.filter({$0.date != self.currentDate && $0.time == self.currentTime})
         
-        DispatchQueue.main.sync {
+        DispatchQueue.main.async {
 
             if let midDayTempDict = self.currentWeatherForecastInfo?.filter({$0.time == self.currentTime}).first,
                 let city = self.weatherModel?.city.name,
